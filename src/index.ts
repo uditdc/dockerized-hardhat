@@ -1,10 +1,15 @@
 import fastify from 'fastify'
+import cors from '@fastify/cors'
 import axios from 'axios'
 import { ethers } from "ethers";
 
 const HARDHAT_URL = 'http://0.0.0.0:8545'
 
 const server = fastify()
+server.register(cors, {
+  origin: false // disable CORS
+})
+
 const provider = new ethers.providers.JsonRpcProvider('http://0.0.0.0:8545')
 
 server.get('/block-number', async (request, reply) => {
