@@ -9,8 +9,7 @@
     "hardhat": "^2.13.0"
   },
   "scripts": {
-    "build": "npm run build:app && npm run build:docker",
-    "build:app": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
     "build:docker": "docker build -t dockerized-hardhat .",
     "start": "node dist/index.js",
     "start:network": "npx hardhat node"
